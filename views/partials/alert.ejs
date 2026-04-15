@@ -1,0 +1,5 @@
+<div class="alert alert-<%= alert.type === 'success' ? 'success' : 'danger' %> alert-dismissible fade show" role="alert">
+    <i class="fas fa-<%= alert.type === 'success' ? 'check-circle' : 'exclamation-circle' %>"></i>
+    <%= alert.message %>
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+</div>

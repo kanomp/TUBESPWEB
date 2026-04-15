@@ -1,0 +1,48 @@
+<h2 class="mb-4">Pembayaran Pesanan #<%= order.order_number %></h2>
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Konfirmasi Pembayaran</h5>
+                <hr>
+
+                <div class="mb-3">
+                    <p><strong>No. Pesanan:</strong> <%= order.order_number %></p>
+                    <p><strong>Total Pembayaran:</strong> <span style="font-size: 1.5rem; color: #cf6679;">Rp <%= Number(order.total_amount).toLocaleString('id-ID', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) %></span></p>
+                </div>
+
+                <hr>
+
+                <div class="alert alert-info">
+                    <h6>Metode Pembayaran: Dummy Payment</h6>
+                    <p class="small mb-0">Ini adalah pembayaran dummy untuk keperluan demo. Dalam sistem nyata, akan terintegrasi dengan payment gateway sebenarnya.</p>
+                </div>
+
+                <form method="POST" class="mt-4">
+                    <div class="mb-3">
+                        <label class="form-label">Nomor Kartu (Contoh: 4532-XXXX-XXXX-1234)</label>
+                        <input type="text" class="form-control" value="4532-1234-5678-9012" readonly>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Masa Berlaku</label>
+                            <input type="text" class="form-control" value="12/25" readonly>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">CVV</label>
+                            <input type="text" class="form-control" value="***" readonly>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-success w-100 btn-lg">
+                        <i class="fas fa-check-circle"></i> Konfirmasi Pembayaran
+                    </button>
+                </form>
+
+                <a href="/order/detail/<%= order.id %>" class="btn btn-secondary w-100 mt-2">Kembali ke Pesanan</a>
+            </div>
+        </div>
+    </div>
+</div>

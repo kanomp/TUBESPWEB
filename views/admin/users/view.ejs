@@ -1,0 +1,33 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card mb-3">
+        <div class="card-body">
+          <h2 class="card-title mb-4">User Detail</h2>
+          <p><strong>ID:</strong> <%= managedUser.id %></p>
+          <p><strong>Name:</strong> <%= managedUser.name %></p>
+          <p><strong>Email:</strong> <%= managedUser.email %></p>
+          <p><strong>Phone:</strong> <%= managedUser.phone || 'N/A' %></p>
+          <p><strong>Address:</strong> <%= managedUser.address || 'N/A' %></p>
+          <p><strong>Role:</strong>
+            <% if (managedUser.role === 'admin') { %>
+              <span class="badge bg-danger">Admin</span>
+            <% } else { %>
+              <span class="badge bg-secondary">User</span>
+            <% } %>
+          </p>
+          <p><strong>Created:</strong> <%= new Date(managedUser.created_at).toLocaleDateString('id-ID') %></p>
+        </div>
+      </div>
+      <div class="d-flex gap-2">
+        <a href="/admin/users/edit/<%= managedUser.id %>" class="btn btn-warning fw-bold">Edit User</a>
+        <a href="/admin/users" class="btn btn-secondary fw-bold">Back to Users</a>
+        <% if (user && user.id !== managedUser.id) { %>
+          <form method="POST" action="/admin/users/delete/<%= managedUser.id %>" style="display:inline;">
+            <button type="submit" class="btn btn-danger fw-bold" onclick="return confirm('Yakin ingin menghapus user ini?')">Delete User</button>
+          </form>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,499 @@
+Source : https://pindad.com/weapon
+
+Produk dan Deskripsinya :
+
+** Kategori
+1 - 5 _Pistol
+6 - 9 _GrenadeLauncher
+10 - 12 _Mortar
+13 - 17 _AssaultRifle
+18 - 20 _Jasa
+
+**
+1. 
+Nama :
+G2 COMBAT A1
+
+Img :
+G2_Combat_A1_Pistol.jpg
+
+Deskripsi :
+Pistol 9 mm cocok untuk penggunaan taktis oleh militer dan Penegakan Hukum
+
+Spesifikasi :
+Caliber : 9 x 19 mm
+Magazine Capacity : 15 rounds
+Firing Mode : Semi Automatic
+Action : Single Action
+Weight : 0,94 kg
+Overall Length : 202 mm
+Barrel Length : 114,3 mm
+Sight : Fixed Front & Rear Sight
+Safety : Hammer Lock
+Effective Range : 25 m
+Rifling : 6 Grooves RH, 250 mm/Twist
+Rail : Picatinny Rail / MIL-STD-1913
+
+
+
+2. 
+Nama :
+G2 Premium
+
+Img :
+G2_Premium_Pistol.jpg
+
+Deskripsi :
+Pistol 9 mm dibuat untuk memenangkan kompetisi menembak
+
+Spesifikasi :
+Caliber : 9 x 19 mm
+Magazine Capacity : 17 rounds
+Firing Mode : Semi Automatic
+Action : Single Action
+Weight : 1,05 kg
+Overall Length : 222 mm
+Barrel Length : 5"
+Sight : Fixed Front & Adjustable Rear Sight
+Safety : Hammer Lock
+Effective Range : 25 m
+Rifling : 6 Grooves RH, 254 mm/Twist
+
+
+
+3. 
+Nama :
+G2 ELITE
+
+Img :
+G2_Elite_Pistol.jpg
+
+Deskripsi :
+Pistol 9 mm cocok untuk penggunaan layanan standar oleh militer dan Penegakan Hukum
+
+Spesifikasi :
+Caliber : 9 x 19 mm
+Magazine Capacity : 15 rounds
+Firing Mode : Semi Automatic
+Action : Single Action
+Weight : 1 kg
+Overall Length : 223 mm
+Barrel Length : 5"
+Sight : Fixed Front & Adjustable Rear Sight
+Safety : Hammer Lock
+Effective Range : 25 m
+Rifling : 6 Grooves RH, 250 mm/Twist
+
+
+
+4. 
+Nama :
+MAG-4
+
+Img :
+Mag4_Pistol.jpg
+
+Deskripsi :
+Pistol 9 mm dengan laras 4 inci yang dirancang untuk penggunaan Militer dan Penegakan Hukum
+
+Spesifikasi :
+Caliber : 9x19 mm Parabellum
+Magazine Capacity : 15 rounds
+Firing Mode : Semi Automatic
+Action : Single Action
+Weight : 0,91 kg
+Overall Length : 193 mm
+Barrel Length : 4"
+Sight : Fixed Front & Rear Sight
+Safety : Hammer Lock
+Effective Range : 15 m
+
+
+
+5.
+Nama :
+P3A
+
+Img :
+P3A_Pistol.jpg
+
+Deskripsi :
+Pistol 7,65 x 17 mm (.32 ACP) dirancang untuk pertahanan diri
+
+Spesifikasi :
+Caliber : 7.65 x 17 mm (.32 ACP)
+Magazine Capacity : 12 rounds
+Firing Mode : Semi Automatic
+Action : Double Action
+Weight : 0,794 kg
+Overall Length : 180 mm
+Barrel Length : 102 mm
+Sight : Fixed Front & Rear Sight
+Safety : Hammer Lock
+Effective Range : 15 m
+
+
+
+6. 
+Nama :
+SAR-2
+
+Img :
+SAR2_GrenadeLauncher.jpg
+
+Deskripsi :
+Peluncur tidak mematikan 38 mm untuk penggunaan Penegakan Hukum yang dirancang untuk menembakkan berbagai peluru 38 mm termasuk gas air mata, asap, dan bola karet.
+
+Spesifikasi :
+Caliber : 38 mm
+Operating Principle : manual
+Weight : 2,36 kg
+Overall Length : 763 mm
+Barrel Length : 360 mm
+Sight : Mechanical
+Maximum Range : 125 m
+Firing Mode : Single Shot
+
+
+
+7. Nama :
+SPG1A-V2
+
+Img :
+SPG1A_V2_GrenadeLauncher.jpg
+
+Deskripsi :
+Peluncur granat 40 mm untuk keperluan Militer dirancang untuk menembakkan berbagai Granat Kecepatan Rendah 40 mm termasuk Bahan Peledak Tinggi dan Asap. Dapat dipasang pada Senapan Serbu SS1
+
+Spesifikasi :
+Caliber : 40 mm
+Operating Principle : Break Open
+Feeding System : Manual
+Weight : 1,8 kg
+Trigger Pull : 2,7 kg
+Overall Length : 394 mm
+Barrel Length : 305 mm
+Sight : Mechanical
+Maximum Range : 350 m
+Rifling : 6 Grooves RH, 1225 mm (5°55’)
+Muzzle Velocity : 75 m/s
+Firing Mode : Single Shot
+
+
+8. 
+Nama :
+SPG1A-V3
+
+Img :
+SPG1A_V3_GrenadeLauncher.jpg
+
+Deskripsi :
+
+Peluncur granat 40 mm untuk keperluan Militer dirancang untuk menembakkan berbagai Granat Kecepatan Rendah 40 mm termasuk Bahan Peledak Tinggi dan Asap. Dapat dipasang pada Senapan Serbu Laras Pendek SS2-V5.
+
+Spesifikasi :
+Caliber : 40 mm
+Operating Principle : Break Open
+Feeding System : Manual
+Weight : 1,2 kg
+Trigger Pull : 2,7 kg
+Overall Length : 298 mm
+Barrel Length : 200 mm
+Sight : Mechanical
+Maximum Range : 350 m
+Rifling : 6 Grooves RH, 1225 mm (5°55’)
+Muzzle Velocity : 75 m/s
+Firing Mode : Single Shot
+
+
+
+9.
+Nama :
+SPG1A-V4
+
+Img :
+SPG1A_V4_GrenadeLauncher.jpg
+
+Deskripsi :
+Peluncur granat 40 mm untuk keperluan Militer dirancang untuk menembakkan berbagai Granat Kecepatan Rendah 40 mm termasuk Bahan Peledak Tinggi dan Asap. Dapat dipasang pada Senapan Serbu SS2-V4
+
+Spasifikasi :
+Caliber : 40 mm
+Operating Principle : Break Open
+Feeding System : Manual
+Weight : 1,7 kg
+Trigger Pull : 2,7 kg
+Overall Length : 419 mm
+Barrel Length : 305 mm
+Sight : Mechanical
+Maximum Range : 305 m
+Rifling : 6 Grooves RH, 1225 mm (5°55’)
+Muzzle Velocity : 75 m/s
+Firing Mode : Single Shot
+
+
+
+10.
+Nama :
+Mo-1
+
+Img :
+Mo1_Mortar.jpg
+
+Deskripsi :
+Peluncur Mortar Komando 60 mm untuk penggunaan Militer yang dirancang untuk menyerang posisi musuh jarak pendek
+
+Spesifikasi :
+Callibre : 60 mm CO
+Total Weight : 6,65 kg
+Overall Length : 570 mm
+Barrel Length : 399,5 mm
+Maximum Range : 800 m
+
+
+
+11. 
+Nama :
+Mo-2
+
+Img :
+Mo2_Mortar.jpg
+
+Deskripsi :
+Peluncur Mortar Jarak Jauh 60 mm untuk penggunaan Militer yang dirancang untuk menyerang posisi musuh jarak jauh
+
+Spesifikasi :
+Caliber : 60 mm LR
+Total Weights : 18,3 kg
+Overall Length : 945 mm
+Barrel Inner Diameter : 60,6 mm
+Sight : Mechanical
+Elevation : 42° - 85°
+Maximum Range : 4.000 m
+Firing Mechanism : Drop
+
+
+
+12.
+Nama :
+Mo-3
+
+Img :
+Mo3_Mortar.jpg
+
+Deskripsi :
+Peluncur Mortir 81 mm untuk penggunaan Militer dirancang untuk menyerang posisi musuh jarak jauh
+
+Spesifikasi :
+Caliber : 81 mm
+Total Weight : 55,2 mm
+Sight accuracy : 1 mil
+Overall Length : 1.600 mm
+Barrel Inner Diameter : 81,36 mm
+Sight : Mechanical
+Elevation : 42° - 85°
+Maximum Range : 6.500 m
+Firing Mechanism : Drop
+
+
+
+13.
+Nama :
+SS2-V1
+
+Img :
+SS2_V1_AssaultRifle.jpg
+
+Deskripsi :
+Senapan serbu yang dioperasikan dengan gas 5,56 mm untuk penggunaan Militer dan Penegakan Hukum, diuji dan memenuhi syarat pada kondisi medan perang yang paling menuntut
+
+Spesifikasi :
+Caliber : 5.56 x 45 mm
+Magazine Capacity : 30 rounds
+Operating Principle : Gas Operated
+Empty Weight : 3,95 kg
+Overall Length : 985 mm
+Barrel Length : 460 mm
+Sight : Adjustable Iron Sights
+Safety : Selector Switch
+Effective Range : 400 m
+Rifling : 6 Grooves RH, 177,8 mm/Twist
+Rate of Fire : 720-900 round/minute
+Firing Mode : Safe, Semi Automatic, Full Automatic
+
+
+
+14.
+Nama :
+SS2-V2
+
+Img :
+SS2_V2_AssaultRifle.jpg
+
+Deskripsi :
+Karabin yang dioperasikan dengan gas 5,56 mm untuk penggunaan Militer dan Penegakan Hukum, diuji dan memenuhi syarat pada kondisi medan perang yang paling menuntut
+
+Spesifikasi :
+Caliber : 5.56 x 45 mm
+Magazine Capacity : 30 rounds
+Operating Principle : Gas Operated
+Empty Weight : 3,82 kg
+Overall Length : 930 mm
+Barrel Length : 403 mm
+Sight : Adjustable Iron Sights
+Safety : Selector Switch
+Effective Range : 300 m
+Rifling : 6 Grooves RH, 177,8 mm/Twist
+Rate of Fire : 720-900 round/minutes
+Firing Mode : Safe, Semi Automatic, Full Automatic
+
+
+
+15.
+Nama :
+SS2-V4
+
+Img :
+SS2_V3_AssaultRifle.jpg
+
+Deskripsi :
+Senapan serbu yang dioperasikan dengan gas 5,56 mm untuk penggunaan Militer dan Penegakan Hukum, diuji dan memenuhi syarat pada kondisi medan perang yang paling menuntut. Cocok untuk peran DMR dalam unit tempur
+
+Spesifikasi :
+Caliber : 5.56 x 45 mm
+Magazine Capacity : 30 rounds
+Operating Principle : Gas Operated
+Empty Weight : 4,45 kg
+Overall Length : 1.024 mm
+Barrel Length : 500 mm
+Sight : Adjustable Iron Sights
+Safety : Selector Switch
+Effective Range : 400 m
+Rifling : 6 Grooves RH, 177,8 mm/Twist
+Rate of Fire : 720-900 round/minute
+Firing Mode : Safe, Semi Automatic, Full Automatic
+
+
+
+16. 
+Nama :
+SS2-V4
+
+Img :
+SS2_V4_AssaultRifle.jpg
+
+Deskripsi :
+Senapan serbu yang dioperasikan dengan gas 5,56 mm untuk penggunaan Militer dan Penegakan Hukum, diuji dan memenuhi syarat pada kondisi medan perang yang paling menuntut. Cocok untuk peran DMR dalam unit tempur
+
+Spesifikasi :
+Caliber : 5.56 x 45 mm
+Magazine Capacity : 30 rounds
+Operating Principle : Gas Operated
+Empty Weight : 4,45 kg
+Overall Length : 1.024 mm
+Barrel Length : 500 mm
+Sight : Adjustable Iron Sights
+Safety : Selector Switch
+Effective Range : 400 m
+Rifling : 6 Grooves RH, 177,8 mm/Twist
+Rate of Fire : 720-900 round/minute
+Firing Mode : Safe, Semi Automatic, Full Automatic
+
+
+
+17. 
+Nama :
+SS2-V5
+
+Img :
+SS2_V5_AssaultRifle.jpg
+
+Deskripsi :
+Senapan serbu laras pendek yang dioperasikan dengan gas 5,56 mm untuk penggunaan Militer dan Penegakan Hukum telah diuji dan memenuhi syarat pada kondisi medan perang yang paling menuntut. Cocok untuk kendaraan lapis baja dan kru artileri
+
+Spesifikasi :
+Caliber : 5.56 x 45 mm
+Magazine Capacity : 30 rounds
+Operating Principle : Gas Operated
+Empty Weight : 3,35 kg
+Overall Length : 750 mm
+Barrel Length : 255 mm
+Sight : Adjustable Iron Sights
+Safety : Selector Switch
+Effective Range : 200 m
+Rifling : 6 Grooves RH, 177,8 mm/Twist
+Rate of Fire : 720-900 round/minutes
+Firing Mode : Safe, Semi Automatic, Full Automatic
+
+
+
+18.
+Nama :
+Polisi Damai
+
+Img :
+Polisi_Damai.jpg
+
+Deskripsi :
+Kami menyediakan jasa yang dapat memungkinkan anda untuk melakukan segala tindakan kriminal tanpa berurusan dengan pihak kepolisian. Dengan menggunakan jasa kami, selama jasa kami masih dalam waktu aktif, maka setiap tindakan kriminal yang anda lakukan tidak akan tercatat di pihak kepolisian.
+
+Detail Persyaratan :
+- Jasa ini akan aktif tepat saat pembayaran telah selesai
+- Jasa ini hanya berlaku pada satu orang saja
+- Waktu yang diberikan selama 24 jam (untuk durasi yang lebih lama, bisa memesan lebih dari sekali)
+- Harap berhati-hati dalam melakukan tindakan kriminal pada situasi keramaian, karena kami hanya akan mengatasi segala urusan dengan pihak kepolisian tidak dengan orang-orang yang terlibat pada lokasi kejadian
+
+19.
+Nama :
+Body Guard
+
+Img :
+Body_Guard.jpg
+
+Deskripsi :
+Kami menyediakan jasa untuk melindungi anda dari segala tindakan kekerasan. Dengan menggunakan jasa kami, anda akan terlindungi dari segala serangan baik itu dengan menggunakan senjata tajam dan senjata api.
+
+Detail Persyaratan :
+- Body Guard akan menuju lokasi anda setelah proses pembayaran telah selesai
+- Jasa ini hanya berlaku pada satu orang saja
+- Waktu yang diberikan selama 24 jam (untuk durasi yang lebih lama, bisa memesan lebih dari sekali)
+- Harap lebih berhati-hati pada barang-barang yang anda miliki, karena jasa kami hanya akan berfokus untuk melindungi anda selama batas waktu yang dijanjikan. Bila pengguna terjadi kehilangan barang, maka itu bukanlah tanggung jawab kami
+
+20.
+Nama :
+Bebas Hukum
+
+Img :
+Bebas_Hukum.jpg
+
+Deskripsi :
+Kami menyediakan jasa untuk membebaskan anda dari segala hukuman. Dengan menggunakan jasa kami, anda akan kami pastikan bebas dengan menggunakan dua cara, mulai dari mengancam pihak lain yang merugikan anda hingga mengancam hakim sidang itu sendiri
+
+Detail Persyaratan :
+- Jasa ini hanya berlaku pada satu orang saja dan satu kasus saja (bisa memesan lebih dari sekali untuk menambahkan jumlah orang dan jumlah kasus yang akan kami atasi)
+- Kami akan membebaskan anda dengan menggunakan dua cara, yaitu menyingkirkan pihak yang dirasa merugikan anda, dan mengancam hakim sidang
+- Harap lebih berhati-hati pada tindakan anda saat proses sidang sedang berlangusng. Jika anda berprilaku yang diluar kuasa kami saat sidang sedang berlangsung dan anda tiba-tiba menggunakan pakaian yang memperlihatkan identitas dari agama anda (seperti peci dan hijab) yang bisa saja menyebabkan sebagian orang merasa tersinggung yang mungkin saja bisa memperburuk posisi anda. Itu bukanlah tanggung jawab kami
+
+21. 
+Nama :
+Membersihkan TKP
+
+Img :
+Membersihkan_TKP.jpg
+
+Deskripsi :
+Kami menyediakan jasa untuk membersikan semua barang bukti dan sisa-sisa yang ada di tempat anda melakukan tidakan kriminal. Kami akan memastikan bahwa tidak ada bukti yang tertinggal, mulai dari jasad seseorang ataupun bukti yang kecil seperti bercak darah dan sidik jari pasti akan kami hilangkan.
+
+Detail Persyaratan :
+- Jasa ini hanya berlaku pada satu tempat saja seperti rumah, dan lain-lain (bisa membeli lebih dari satu)
+- Selama permbersihan kami hanya dapat menangani satu jasad manusia saja. Jika lebih maka kami akan meminta biaya lebih 50% per jasad yang diluar perjanjian
+- Pekerjaan akan kami lakukan selama 24 jam, selama waktu tersebut diharapkan tidak ada aktivitas lain yang dapat mengganggu selama proses pembersihan berlangsung
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,131 @@
+<div class="product-detail">
+    <div class="row">
+        <div class="col-md-5 mb-4">
+            <div class="bg-light p-4 rounded">
+                <img src="<%= product.category_id === 1 ? '/images/Produk/Senjata/' : '/images/Produk/' %><%= product.image || 'placeholder.jpg' %>"
+                     class="img-fluid rounded" alt="<%= product.name %>">
+            </div>
+        </div>
+
+        <div class="col-md-7">
+        <h2 class="mb-2"><%= product.name %></h2>
+        <p class="text-muted mb-3"><%= product.category.name %></p>
+
+        <div class="mb-3">
+            <% if (product.avgRating && product.avgRating > 0) { %>
+                <div class="d-flex align-items-center mb-2">
+                    <% for (let i = 0; i < 5; i++) { %>
+                        <% if (i < Math.round(product.avgRating)) { %>
+                            <i class="fas fa-star text-warning"></i>
+                        <% } else { %>
+                            <i class="far fa-star"></i>
+                        <% } %>
+                    <% } %>
+                    <span class="ms-2"><strong><%= product.avgRating.toFixed(1) %></strong>/5 (<%= product.totalReviews || 0 %> review)</span>
+                </div>
+            <% } else { %>
+                <p class="text-muted">Belum ada review</p>
+            <% } %>
+        </div>
+
+        <h3 class="product-price text-danger mb-3">Rp <%= Number(product.price).toLocaleString('id-ID', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) %></h3>
+
+        <% if (product.description) { %>
+            <p class="description-text" style="white-space: pre-line;"><%= product.description %></p>
+        <% } %>
+
+        <p class="product-stock mb-3"><strong>Stok tersedia:</strong> <%= product.stock %></p>
+
+        <% if (product.stock > 0) { %>
+            <div class="mb-3">
+                <form method="POST" action="/cart/add" class="d-flex gap-2 align-items-center">
+                    <input type="hidden" name="product_id" value="<%= product.id %>">
+                    <input type="number" id="quantity" name="quantity" value="1" min="1" max="<%= product.stock %>"
+                           class="form-control" style="width: 100px;">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-shopping-cart"></i> Tambah ke Keranjang
+                    </button>
+                </form>
+            </div>
+        <% } else { %>
+            <div class="alert alert-warning">Stok habis</div>
+        <% } %>
+
+        <% if (user) { %>
+            <form method="POST" action="/wishlist/add/<%= product.id %>" class="d-inline">
+                <button type="submit" class="btn btn-outline-danger">
+                    <i class="fas fa-heart"></i> Tambah ke Wishlist
+                </button>
+            </form>
+        <% } %>
+    </div>
+</div>
+</div>
+
+<% if (product.reviews && product.reviews.length > 0) { %>
+    <div class="row mt-5">
+        <div class="col-12">
+            <h4 class="mb-3">Reviews & Ratings</h4>
+            <% product.reviews.forEach(review => { %>
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <div class="mb-2">
+                                    <% for (let i = 0; i < 5; i++) { %>
+                                        <% if (i < review.rating) { %>
+                                            <i class="fas fa-star text-warning"></i>
+                                        <% } else { %>
+                                            <i class="far fa-star"></i>
+                                        <% } %>
+                                    <% } %>
+                                    <small class="text-muted ms-2"><%= new Date(review.created_at).toLocaleDateString('id-ID') %></small>
+                                </div>
+                                <% if (review.comment) { %>
+                                    <p class="mb-0"><%= review.comment %></p>
+                                <% } %>
+                            </div>
+                            <small class="text-muted">Oleh: <%= review.user.name %></small>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+<% } %>
+
+<% if (user) { %>
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5>Tambah Review</h5>
+                    <% if (hasReviewed) { %>
+                        <div class="alert alert-info"><%= reviewMessage %></div>
+                    <% } else if (!canReview) { %>
+                        <div class="alert alert-warning"><%= reviewMessage %></div>
+                    <% } else { %>
+                        <form method="POST" action="/review/add/<%= product.id %>">
+                            <div class="mb-3">
+                                <label class="form-label">Rating</label>
+                                <select name="rating" class="form-control" required>
+                                    <option value="">Pilih rating</option>
+                                    <option value="5">5 - Sangat Bagus</option>
+                                    <option value="4">4 - Bagus</option>
+                                    <option value="3">3 - Cukup</option>
+                                    <option value="2">2 - Buruk</option>
+                                    <option value="1">1 - Sangat Buruk</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Komentar</label>
+                                <textarea name="comment" class="form-control" rows="3" placeholder="Berikan komentar Anda..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Kirim Review</button>
+                        </form>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+<% } %>

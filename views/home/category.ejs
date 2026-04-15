@@ -1,0 +1,92 @@
+<div class="hero-section text-center py-5 mb-5">
+    <div class="container">
+        <h1 class="display-4 fw-bold">Kategori: <%= category.name %></h1>
+        <p class="lead">Temukan produk terbaik di kategori ini</p>
+        <a href="/" class="btn btn-outline-light border-white text-white">← Kembali ke Home</a>
+    </div>
+</div>
+
+<div class="row mb-4">
+    <div class="col-md-12">
+        <h3 class="mb-3">Kategori Produk</h3>
+        <div class="d-flex gap-2 mb-3 flex-wrap">
+            <a href="/" class="btn btn-outline-primary">Semua</a>
+            <% categories.forEach(cat => { %>
+                <a href="/category/<%= cat.id %>" class="btn <%= cat.id == category.id ? 'btn-primary' : 'btn-outline-primary' %>"><%= cat.name %></a>
+            <% }) %>
+        </div>
+    </div>
+</div>
+
+<h3 class="mb-4">Produk di Kategori <%= category.name %></h3>
+
+<div class="row">
+    <% if (products.length === 0) { %>
+        <div class="col-12">
+            <div class="text-center py-5">
+                <i class="fas fa-box-open fa-3x text-muted mb-3"></i>
+                <p class="text-muted">Belum ada produk di kategori ini</p>
+                <a href="/" class="btn btn-primary">Lihat Semua Produk</a>
+            </div>
+        </div>
+    <% } else { %>
+        <% products.forEach(product => { %>
+            <div class="col-md-3 mb-4">
+                <div class="card product-card h-100">
+                    <div class="bg-light" style="height: 200px; overflow: hidden;">
+                        <img src="<%= product.category_id === 1 ? '/images/Produk/Senjata/' : '/images/Produk/' %><%= product.image || 'placeholder.jpg' %>" class="card-img-top product-image" alt="<%= product.name %>">
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title"><%= product.name %></h5>
+                        <p class="product-price text-danger fw-bold">Rp <%= Number(product.price).toLocaleString('id-ID', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) %></p>
+                        <div class="mb-2">
+                            <small class="text-muted">
+                                <% if (product.avgRating && product.avgRating > 0) { %>
+                                    <% for (let i = 0; i < 5; i++) { %>
+                                        <% if (i < Math.round(product.avgRating)) { %>
+                                            <i class="fas fa-star text-warning"></i>
+                                        <% } else { %>
+                                            <i class="far fa-star"></i>
+                                        <% } %>
+                                    <% } %>
+                                    (<%= product.avgRating.toFixed(1) %>/5 - <%= product.totalReviews || 0 %> review)
+                                <% } else { %>
+                                    Belum ada review
+                                <% } %>
+                            </small>
+                        </div>
+                        <div class="mt-auto">
+                            <a href="/product/<%= product.slug %>" class="btn btn-detail">Lihat Detail</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    <% } %>
+</div>
+
+<% if (totalPages > 1) { %>
+<div class="d-flex justify-content-center mt-4">
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            <% if (currentPage > 1) { %>
+                <li class="page-item">
+                    <a class="page-link" href="/category/<%= category.id %>?page=<%= currentPage - 1 %>">Previous</a>
+                </li>
+            <% } %>
+
+            <% for (let i = Math.max(1, currentPage - 2); i <= Math.min(totalPages, currentPage + 2); i++) { %>
+                <li class="page-item <%= i === currentPage ? 'active' : '' %>">
+                    <a class="page-link" href="/category/<%= category.id %>?page=<%= i %>"><%= i %></a>
+                </li>
+            <% } %>
+
+            <% if (currentPage < totalPages) { %>
+                <li class="page-item">
+                    <a class="page-link" href="/category/<%= category.id %>?page=<%= currentPage + 1 %>">Next</a>
+                </li>
+            <% } %>
+        </ul>
+    </nav>
+</div>
+<% } %>

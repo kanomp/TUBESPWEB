@@ -1,0 +1,113 @@
+<div class="row mb-4">
+    <div class="col-md-12">
+        <div class="card bg-primary text-white">
+            <div class="card-body">
+                <h3>Selamat Datang, <%= userData.name %>! 👋</h3>
+                <p>Dashboard Anda - Lihat overview aktivitas belanja terbaru</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mb-4">
+    <div class="col-md-4">
+        <div class="card text-center">
+            <div class="card-body">
+                <h5 class="card-title">Total Orders</h5>
+                <h2 class="text-primary"><%= orders.length %></h2>
+                <small class="text-muted">Pesanan yang telah dibuat</small>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-center">
+            <div class="card-body">
+                <h5 class="card-title">Wishlist Items</h5>
+                <h2 class="text-success"><%= wishlistCount %></h2>
+                <small class="text-muted">Produk yang disimpan</small>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-center">
+            <div class="card-body">
+                <h5 class="card-title">Loyalty Points</h5>
+                <h2 class="text-warning"><%= userData.loyalty_points || 0 %></h2>
+                <small class="text-muted">Poin yang terkumpul</small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mb-4">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5>Recent Orders</h5>
+            </div>
+            <div class="card-body">
+                <% if (orders.length === 0) { %>
+                    <p class="text-muted">Anda belum memiliki pesanan. <a href="/">Mulai berbelanja sekarang</a></p>
+                <% } else { %>
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Total</th>
+                                    <th>Status</th>
+                                    <th>Date</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% orders.forEach(order => { %>
+                                    <tr>
+                                        <td><strong>#<%= order.order_number %></strong></td>
+                                        <td>Rp <%= Number(order.total_amount).toLocaleString('id-ID', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) %></td>
+                                        <td>
+                                            <% 
+                                                let badgeClass = 'bg-secondary';
+                                                if (order.status === 'pending') badgeClass = 'bg-warning text-dark';
+                                                else if (order.status === 'processing') badgeClass = 'bg-info';
+                                                else if (order.status === 'shipped') badgeClass = 'bg-primary';
+                                                else if (order.status === 'delivered') badgeClass = 'bg-success';
+                                                else if (order.status === 'cancelled') badgeClass = 'bg-danger';
+                                            %>
+                                            <span class="badge <%= badgeClass %>"><%= order.status %></span>
+                                        </td>
+                                        <td><%= new Date(order.created_at).toLocaleDateString('id-ID') %></td>
+                                        <td>
+                                            <a href="/order/detail/<%= order.id %>" class="btn btn-sm btn-primary">View</a>
+                                        </td>
+                                    </tr>
+                                <% }) %>
+                            </tbody>
+                        </table>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5>Quick Actions</h5>
+            </div>
+            <div class="card-body">
+                <a href="/wishlist" class="btn btn-primary">
+                    <i class="fas fa-heart"></i> View Wishlist
+                </a>
+                <a href="/cart" class="btn btn-success">
+                    <i class="fas fa-shopping-cart"></i> View Cart
+                </a>
+                <a href="/" class="btn btn-info">
+                    <i class="fas fa-shopping-bag"></i> Continue Shopping
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

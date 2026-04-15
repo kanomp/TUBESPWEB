@@ -1,0 +1,264 @@
+<div class="row mb-4">
+    <div class="col-md-12">
+        <div class="card bg-warning text-dark">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h3>Profil Saya</h3>
+                        <p>Kelola informasi profil dan keamanan akun</p>
+                    </div>
+                    <div class="col-md-4 text-end">
+                        <div>
+                            <small class="text-muted d-block">Loyalty Points</small>
+                            <h4 class="text-dark"><%= userData.loyalty_points || 0 %> poin</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Info Nama -->
+<div class="row mb-4">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Nama Lengkap</h5>
+            </div>
+            <div class="card-body">
+                <div class="row mb-3">
+                    <div class="col-md-3">
+                        <strong id="displayName"><%= userData.name %></strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Alert Messages -->
+<div id="alertContainer"></div>
+
+<!-- Edit Profil -->
+<div class="row mb-4">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header bg-success text-white">
+                <h5 class="mb-0">Edit Profil</h5>
+            </div>
+            <div class="card-body">
+                <form id="editProfileForm">
+                    <div class="row mb-3">
+                        <label class="col-sm-3 col-form-label">Nama Lengkap</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="nameInput" name="name" value="<%= userData.name %>" placeholder="Masukkan nama Anda" required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-9 offset-sm-3">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save"></i> Simpan Perubahan Nama
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Ubah Password -->
+<div class="row mb-4">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header bg-warning text-dark">
+                <h5 class="mb-0">Ubah Password</h5>
+            </div>
+            <div class="card-body">
+                <form id="changePasswordForm">
+                    <div class="row mb-3">
+                        <label class="col-sm-3 col-form-label">Password Saat Ini</label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="currentPassword" name="current_password" placeholder="Masukkan password saat ini" required>
+                                <button class="btn btn-outline-secondary" type="button" onclick="togglePassword('currentPassword')">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label class="col-sm-3 col-form-label">Password Baru</label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="newPassword" name="new_password" placeholder="Masukkan password baru" required>
+                                <button class="btn btn-outline-secondary" type="button" onclick="togglePassword('newPassword')">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <small class="text-muted d-block mt-1">Minimal 8 karakter</small>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label class="col-sm-3 col-form-label">Konfirmasi Password</label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="confirmPassword" name="confirm_password" placeholder="Konfirmasi password baru" required>
+                                <button class="btn btn-outline-secondary" type="button" onclick="togglePassword('confirmPassword')">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-9 offset-sm-3">
+                            <button type="submit" class="btn btn-warning">
+                                <i class="fas fa-lock"></i> Ubah Password
+                            </button>
+                            <a href="/dashboard" class="btn btn-secondary ms-2">
+                                <i class="fas fa-arrow-left"></i> Kembali ke Dashboard
+                            </a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function togglePassword(fieldId) {
+    const field = document.getElementById(fieldId);
+    const icon = event.target.closest('button').querySelector('i');
+    
+    if (field.type === 'password') {
+        field.type = 'text';
+        icon.classList.remove('fa-eye');
+        icon.classList.add('fa-eye-slash');
+    } else {
+        field.type = 'password';
+        icon.classList.remove('fa-eye-slash');
+        icon.classList.add('fa-eye');
+    }
+}
+
+function showAlert(message, type) {
+    const alertContainer = document.getElementById('alertContainer');
+    const alertClass = type === 'success' ? 'alert-success' : 'alert-danger';
+    const alertHtml = `<div class="alert ${alertClass} alert-dismissible fade show" role="alert">
+        ${message}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>`;
+    
+    alertContainer.innerHTML = alertHtml;
+    
+    // Auto dismiss after 5 seconds
+    setTimeout(() => {
+        const alertElement = alertContainer.querySelector('.alert');
+        if (alertElement) {
+            alertElement.remove();
+        }
+    }, 5000);
+}
+
+// Edit Profile Form
+document.getElementById('editProfileForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const name = document.getElementById('nameInput').value;
+    const btn = e.target.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
+    
+    try {
+        const response = await fetch('/profile/update', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Requested-With': 'XMLHttpRequest'
+            },
+            body: JSON.stringify({ name })
+        });
+        
+        // Check if response is redirect (authentication failed)
+        if (response.redirected) {
+            showAlert('Sesi Anda telah berakhir. Silakan login kembali.', 'danger');
+            setTimeout(() => {
+                window.location.href = '/auth/login';
+            }, 2000);
+            return;
+        }
+        
+        const data = await response.json();
+        
+        if (data.success) {
+            showAlert(data.message, 'success');
+            document.getElementById('displayName').textContent = name;
+        } else {
+            showAlert(data.message, 'danger');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        showAlert('Terjadi kesalahan koneksi. Silakan coba lagi.', 'danger');
+    } finally {
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fas fa-save"></i> Simpan Perubahan Nama';
+    }
+});
+
+// Change Password Form
+document.getElementById('changePasswordForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const currentPassword = document.getElementById('currentPassword').value;
+    const newPassword = document.getElementById('newPassword').value;
+    const confirmPassword = document.getElementById('confirmPassword').value;
+    const btn = e.target.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
+    
+    try {
+        const response = await fetch('/profile/change-password', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Requested-With': 'XMLHttpRequest'
+            },
+            body: JSON.stringify({
+                current_password: currentPassword,
+                new_password: newPassword,
+                confirm_password: confirmPassword
+            })
+        });
+        
+        // Check if response is redirect (authentication failed)
+        if (response.redirected) {
+            showAlert('Sesi Anda telah berakhir. Silakan login kembali.', 'danger');
+            setTimeout(() => {
+                window.location.href = '/auth/login';
+            }, 2000);
+            return;
+        }
+        
+        const data = await response.json();
+        
+        if (data.success) {
+            showAlert(data.message, 'success');
+            document.getElementById('changePasswordForm').reset();
+        } else {
+            showAlert(data.message, 'danger');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        showAlert('Terjadi kesalahan koneksi. Silakan coba lagi.', 'danger');
+    } finally {
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fas fa-lock"></i> Ubah Password';
+    }
+});
+</script>

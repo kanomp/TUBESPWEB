@@ -1,0 +1,62 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="mb-4">Manage Users</h2>
+      
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead class="table-dark">
+            <tr>
+              <th>ID</th>
+              <th>Username</th>
+              <th>Email</th>
+              <th>Role</th>
+              <th>Created</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if (users && users.length > 0) { %>
+              <% users.forEach(user => { %>
+                <tr>
+                  <td><%= user.id %></td>
+                  <td><%= user.name %></td>
+                  <td><%= user.email %></td>
+                  <td>
+                    <% if (user.role === 'admin') { %>
+                      <span class="badge bg-danger">Admin</span>
+                    <% } else { %>
+                      <span class="badge bg-secondary">User</span>
+                    <% } %>
+                  </td>
+                  <td><%= new Date(user.created_at).toLocaleDateString('id-ID') %></td>
+                  <td>
+                    <a href="/admin/users/view/<%= user.id %>" class="btn btn-sm btn-info">View</a>
+                    <a href="/admin/users/edit/<%= user.id %>" class="btn btn-sm btn-warning">Edit</a>
+                    <form method="POST" action="/admin/users/delete/<%= user.id %>" style="display:inline;">
+                      <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus user ini?')">Delete</button>
+                    </form>
+                  </td>
+                </tr>
+              <% }); %>
+            <% } else { %>
+              <tr>
+                <td colspan="6" class="text-center">No users found</td>
+              </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .table-responsive {
+    overflow-x: auto;
+  }
+  .btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+  }
+</style>

@@ -1,0 +1,94 @@
+<div class="row mb-4">
+    <div class="col-md-3">
+        <div class="card text-center">
+            <div class="card-body">
+                <h5 class="card-title">Total Users</h5>
+                <h2 class="text-primary"><%= stats.totalUsers %></h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-center">
+            <div class="card-body">
+                <h5 class="card-title">Total Products</h5>
+                <h2 class="text-success"><%= stats.totalProducts %></h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-center">
+            <div class="card-body">
+                <h5 class="card-title">Total Orders</h5>
+                <h2 class="text-warning"><%= stats.totalOrders %></h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-center">
+            <div class="card-body">
+                <h5 class="card-title">Revenue</h5>
+                <h2 class="text-danger">Rp <%= (stats.revenue / 1000000).toFixed(0) %>M</h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h5>Recent Orders</h5>
+            </div>
+            <div class="card-body">
+                <% if (recentOrders.length === 0) { %>
+                    <p class="text-muted">Belum ada order</p>
+                <% } else { %>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer</th>
+                                <th>Status</th>
+                                <th>Total</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% recentOrders.forEach(order => { %>
+                                <tr>
+                                    <td>#<%= order.order_number %></td>
+                                    <td><%= order.user ? order.user.name : 'Unknown' %></td>
+                                    <td>
+                                        <% 
+                                            let badgeClass = 'bg-secondary';
+                                            if (order.status === 'pending') badgeClass = 'bg-warning';
+                                            else if (order.status === 'processing') badgeClass = 'bg-info';
+                                            else if (order.status === 'shipped') badgeClass = 'bg-primary';
+                                            else if (order.status === 'delivered') badgeClass = 'bg-success';
+                                            else if (order.status === 'cancelled') badgeClass = 'bg-danger';
+                                        %>
+                                        <span class="badge <%= badgeClass %>"><%= order.status %></span>
+                                    </td>
+                                    <td>Rp <%= Number(order.total_amount).toLocaleString('id-ID', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) %></td>
+                                    <td><a href="/admin/orders/view/<%= order.id %>" class="btn btn-sm btn-primary">View</a></td>
+                                </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
+                <% } %>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h5>Quick Actions</h5>
+            </div>
+            <div class="card-body">
+                <a href="/admin/products" class="btn btn-primary w-100 mb-2">Manage Products</a>
+                <a href="/admin/orders" class="btn btn-success w-100 mb-2">Manage Orders</a>
+                <a href="/admin/users" class="btn btn-info w-100">Manage Users</a>
+            </div>
+        </div>
+    </div>
+</div>

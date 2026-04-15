@@ -1,0 +1,80 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="/">
+            <img src="/images/Aset/Logo.jpeg" alt="Deadlock Armory Logo" class="navbar-brand-logo">
+            Deadlock Armory
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <form class="d-flex me-3" method="GET" action="/search" style="width: 300px;">
+                        <input class="form-control form-control-sm" type="search" name="q" placeholder="Cari produk..." value="<%= typeof query !== 'undefined' ? query : '' %>">
+                        <button class="btn btn-sm btn-outline-light" type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/about">Tentang Kami</a>
+                </li>
+
+                <% if (user) { %>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dashboard">
+                            <i class="fas fa-user"></i> Dashboard
+                        </a>
+                    </li>
+
+                    <% if (user.role === 'admin') { %>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/dashboard">
+                                <i class="fas fa-cog"></i> Admin
+                            </a>
+                        </li>
+                    <% } %>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/wishlist">
+                            <i class="fas fa-heart"></i> Wishlist
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link position-relative" href="/cart">
+                            <i class="fas fa-shopping-cart"></i> Cart
+                            <% if (typeof cartCount !== 'undefined' && cartCount > 0) { %>
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    <%= cartCount %>
+                                </span>
+                            <% } %>
+                        </a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-user-circle"></i> <%= user.name.substring(0, 10) %>...
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="/profile">Edit Profile</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/auth/logout">Logout</a></li>
+                        </ul>
+                    </li>
+                <% } else { %>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/auth/login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/auth/register">Register</a>
+                    </li>
+                <% } %>
+            </ul>
+        </div>
+    </div>
+</nav>

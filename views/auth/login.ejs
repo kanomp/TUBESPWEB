@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title text-center mb-4">Login</h3>
+
+                <% if (typeof error !== 'undefined') { %>
+                    <div class="alert alert-danger">
+                        <%= error %>
+                    </div>
+                <% } %>
+
+                <form method="POST">
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="email" name="email" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Password</label>
+                        <div class="input-group">
+                            <input type="password" id="passwordInput" name="password" class="form-control" required>
+                            <button type="button" class="btn btn-outline-secondary" id="togglePassword">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100">Login</button>
+                </form>
+
+                <hr>
+
+                <p class="text-center">
+                    Belum punya akun? <a href="/auth/register">Daftar sekarang</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.getElementById('togglePassword').addEventListener('click', function(e) {
+    e.preventDefault();
+    const passwordInput = document.getElementById('passwordInput');
+    const toggleBtn = this.querySelector('i');
+    
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        toggleBtn.classList.remove('fa-eye');
+        toggleBtn.classList.add('fa-eye-slash');
+    } else {
+        passwordInput.type = 'password';
+        toggleBtn.classList.remove('fa-eye-slash');
+        toggleBtn.classList.add('fa-eye');
+    }
+});
+</script>

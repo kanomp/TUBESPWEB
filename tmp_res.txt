@@ -1,0 +1,275 @@
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: text/html; charset=utf-8
+Content-Length: 9593
+ETag: W/"2579-CYZVMJq8mC2B2lljLr9wQNdjFvo"
+Date: Sat, 11 Apr 2026 03:50:52 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Pembunuh Bayaran</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        :root {
+            --bg-color: #121212;
+            --text-color: #ffffff;
+            --card-bg: #1e1e1e;
+            --border-color: #333333;
+            --primary-color: #bb86fc;
+            --secondary-color: #03dac6;
+            --danger-color: #cf6679;
+            --success-color: #03dac6;
+            --warning-color: #ffb74d;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+        }
+
+        .navbar {
+            background-color: #000000 !important;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: #9d4edd;
+            border-color: #9d4edd;
+        }
+
+        .text-danger {
+            color: var(--danger-color) !important;
+        }
+
+        .text-success {
+            color: var(--success-color) !important;
+        }
+
+        .form-control {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+        }
+
+        .form-control:focus {
+            background-color: var(--card-bg);
+            border-color: var(--primary-color);
+            color: var(--text-color);
+        }
+
+        .table {
+            color: var(--text-color);
+        }
+
+        .table thead th {
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .table td, .table th {
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="/">
+            <i class="fas fa-shopping-bag"></i> Pembunuh Bayaran
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <form class="d-flex me-3" method="GET" action="/search" style="width: 300px;">
+                        <input class="form-control form-control-sm" type="search" name="q" placeholder="Cari produk..." value="">
+                        <button class="btn btn-sm btn-outline-light" type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/about">Tentang Kami</a>
+                </li>
+
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dashboard">
+                            <i class="fas fa-user"></i> Dashboard
+                        </a>
+                    </li>
+
+                    
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/wishlist">
+                            <i class="fas fa-heart"></i> Wishlist
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link position-relative" href="/cart">
+                            <i class="fas fa-shopping-cart"></i> Cart
+                            
+                        </a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-user-circle"></i> Test User...
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="/profile">Edit Profile</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/auth/logout">Logout</a></li>
+                        </ul>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <div class="py-4">
+        <div class="container">
+            
+
+            <h2 class="mb-4">Checkout</h2>
+
+<div class="row">
+    <div class="col-md-8">
+        <form method="POST" class="card p-4">
+            <h5 class="mb-3">Alamat Pengiriman</h5>
+
+            <div class="mb-3">
+                <label class="form-label">Nama</label>
+                <input type="text" class="form-control" value="Test User" readonly>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-control" value="testcheckout123@example.com" readonly>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">No. Telepon</label>
+                <input type="tel" class="form-control" name="phone" value=""
+                       placeholder="Masukkan nomor telepon Anda" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Alamat Lengkap</label>
+                <textarea name="shipping_address" class="form-control" rows="3" required
+                          placeholder="Masukkan alamat pengiriman lengkap"></textarea>
+            </div>
+
+            <h5 class="my-3">Ringkasan Pesanan</h5>
+
+            <div class="table-responsive mb-3">
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th>Produk</th>
+                            <th>Jumlah</th>
+                            <th>Harga</th>
+                            <th>Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                            <tr>
+                                <td>iPhone 15 Pro</td>
+                                <td>1</td>
+                                <td>Rp 15.000.000,00</td>
+                                <td>Rp 15.000.000,00</td>
+                            </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Lanjut ke Pembayaran</button>
+        </form>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Total Pembayaran</h5>
+                <hr>
+                <div class="d-flex justify-content-between mb-2">
+                    <span>Subtotal:</span>
+                    <span>Rp 15.000.000,00</span>
+                </div>
+                <div class="d-flex justify-content-between mb-2">
+                    <span>Ongkos Kirim:</span>
+                    <span>Rp 0</span>
+                </div>
+                <hr>
+                <div class="d-flex justify-content-between">
+                    <strong>Total:</strong>
+                    <strong class="text-danger" style="font-size: 1.25rem;">Rp 15.000.000,00</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-light mt-5 py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h5>Pembunuh Bayaran</h5>
+                <p>E-commerce terpercaya dengan produk berkualitas dan harga terjangkau.</p>
+            </div>
+            <div class="col-md-4">
+                <h5>Tentang Kami</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-light text-decoration-none">Tentang</a></li>
+                    <li><a href="#" class="text-light text-decoration-none">Karir</a></li>
+                    <li><a href="#" class="text-light text-decoration-none">Blog</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h5>Kontak</h5>
+                <p>
+                    <i class="fas fa-envelope"></i> info@pembunuhbayaran.com<br>
+                    <i class="fas fa-phone"></i> +62 812-3456-7890
+                </p>
+            </div>
+        </div>
+        <hr class="my-4">
+        <div class="text-center">
+            <p>&copy; 2024 Pembunuh Bayaran. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="/js/script.js"></script>
+</body>
+</html>

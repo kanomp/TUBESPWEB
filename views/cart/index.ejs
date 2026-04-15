@@ -1,0 +1,89 @@
+<h2 class="mb-4">Keranjang Belanja</h2>
+
+<% if (cartItems.length === 0) { %>
+    <div class="alert alert-info">
+        <p class="mb-0">Keranjang Anda kosong. <a href="/">Lanjut berbelanja</a></p>
+    </div>
+<% } else { %>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Produk</th>
+                                    <th>Harga</th>
+                                    <th>Jumlah</th>
+                                    <th>Subtotal</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% cartItems.forEach(item => { %>
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <img src="<%= item.cartProduct.category_id === 1 ? '/images/Produk/Senjata/' : '/images/Produk/' %><%= item.cartProduct.image || 'placeholder.jpg' %>"
+                                                     alt="<%= item.cartProduct.name %>"
+                                                     class="me-3"
+                                                     style="width: 50px; height: 50px; object-fit: cover;">
+                                                <div>
+                                                    <strong><%= item.cartProduct.name %></strong>
+                                                    <br>
+                                                    <small class="text-muted">Stok: <%= item.cartProduct.stock %></small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>Rp <%= Number(item.cartProduct.price).toLocaleString('id-ID', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) %></td>
+                                        <td>
+                                            <form method="POST" action="/cart/update/<%= item.id %>" class="d-inline">
+                                                <input type="number" name="quantity" value="<%= item.quantity %>"
+                                                       min="1" max="<%= item.cartProduct.stock %>"
+                                                       class="form-control" style="width: 80px;"
+                                                       onchange="this.form.submit()">
+                                            </form>
+                                        </td>
+                                        <td>Rp <%= (Number(item.cartProduct.price) * item.quantity).toLocaleString('id-ID', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) %></td>
+                                        <td>
+                                            <form method="POST" action="/cart/remove/<%= item.id %>" class="d-inline">
+                                                <button type="submit" class="btn btn-sm btn-danger"
+                                                        onclick="return confirm('Hapus item dari keranjang?')">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                <% }) %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Ringkasan Pesanan</h5>
+                    <hr>
+                    <div class="d-flex justify-content-between mb-3">
+                        <span>Subtotal:</span>
+                        <strong>Rp <%= Number(total).toLocaleString('id-ID', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) %></strong>
+                    </div>
+                    <div class="d-flex justify-content-between mb-3">
+                        <span>Ongkos Kirim:</span>
+                        <strong>Rp 0</strong>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-between mb-3">
+                        <strong>Total:</strong>
+                        <strong class="text-danger" style="font-size: 1.25rem;">Rp <%= Number(total).toLocaleString('id-ID', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) %></strong>
+                    </div>
+                    <a href="/order/checkout" class="btn btn-primary w-100">Lanjut Checkout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+<% } %>
